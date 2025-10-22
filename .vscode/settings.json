@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "You Cant Run.sln"
+    "dotnet.defaultSolution": "YouCantRun.sln"
 }
