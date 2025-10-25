@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Mamah_Jawab_Santai
   m_EditorClassIdentifier: 
   dialogueText: Yoii, sangte euyy
-  choices: []
+  choices:
+  - choiceText: minta sangu
+    pointsValue: 1
+    nextNode: {fileID: 11400000, guid: 6c8d32b5f4e174b4ba3093997fa8688f, type: 2}
