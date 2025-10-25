@@ -1,7 +1,7 @@
-// DialogueManager.cs
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 
 public class DialogueManager : MonoBehaviour
@@ -10,84 +10,133 @@ public class DialogueManager : MonoBehaviour
     [Header("UI Elements")]
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
-    public Transform choiceContainer; // GameObject dengan Vertical Layout Group
-    public GameObject choiceButtonPrefab; // Prefab tombol yang kamu buat
+    public TextMeshProUGUI nameText; // <--- TAMBAHAN BARU: Referensi UI Nama
+    public Transform choiceContainer;
+    public GameObject choiceButtonPrefab;
+
+    [Header("Speaker Names")]
+    public string playerName = "Player"; // <--- TAMBAHAN BARU: Nama Player
+
+    [Header("Timing & Efek")]
+    public float typingSpeed = 0.02f;
+    public float playerChoiceDelay = 0.75f;
+    public float autoEndDelay = 2.0f;
 
     private DialogueNode currentNode;
+    private Coroutine currentTypingCoroutine;
+    private string currentNpcName; // <--- TAMBAHAN BARU: Menyimpan nama NPC
 
-    // Fungsi ini dipanggil oleh NPC untuk memulai dialog
-    public void StartDialogue(DialogueNode startNode)
+    // --- MODIFIKASI: Menangkap 'speakerName' ---
+    public void StartDialogue(DialogueNode startNode, string speakerName)
     {
         dialoguePanel.SetActive(true);
-        // Time.timeScale = 0f; // Opsional: Pause game
+        currentNpcName = speakerName; // Simpan nama NPC
+        // Time.timeScale = 0f;
+        
         ShowNode(startNode);
     }
 
-    // Menampilkan node dialog ke UI
     private void ShowNode(DialogueNode node)
     {
+        StopAllCoroutines();
         currentNode = node;
-        dialogueText.text = node.dialogueText;
 
-        // 1. Bersihkan tombol-tombol pilihan lama
+        nameText.text = currentNpcName; // <--- TAMBAHAN BARU: Set nama NPC
+
         foreach (Transform child in choiceContainer)
         {
             Destroy(child.gameObject);
         }
 
-        // 2. Cek apakah ini akhir dialog (tidak ada pilihan)
+        currentTypingCoroutine = StartCoroutine(TypeText(node));
+    }
+
+    private IEnumerator TypeText(DialogueNode node)
+    {
+        dialogueText.text = "";
+        char[] characters = node.dialogueText.ToCharArray();
+
+        foreach (char c in characters)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
         if (node.choices.Count == 0)
         {
-            // Tampilkan tombol "Selesai" atau tutup otomatis
-            // (Untuk simpelnya, kita panggil EndDialogue() di tombol custom)
-            CreateChoiceButton("Selesai", 0, null); // Tombol "Selesai"
-            return;
-        }
-
-        // 3. Buat tombol baru untuk setiap pilihan
-        foreach (DialogueChoice choice in node.choices)
-        {
-            CreateChoiceButton(choice.choiceText, choice.pointsValue, choice.nextNode);
-        }
-    }
-
-    // Fungsi untuk membuat satu tombol pilihan
-    private void CreateChoiceButton(string text, int points, DialogueNode nextNode)
-    {
-        // Buat tombol dari prefab
-        GameObject buttonObj = Instantiate(choiceButtonPrefab, choiceContainer);
-        
-        // Set teks tombol
-        buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = text;
-
-        // Tambahkan listener (apa yang terjadi saat diklik)
-        buttonObj.GetComponent<Button>().onClick.AddListener(() => {
-            SelectChoice(points, nextNode);
-        });
-    }
-
-    // Dipanggil saat pemain mengklik sebuah pilihan
-    private void SelectChoice(int points, DialogueNode nextNode)
-    {
-        // 1. Tambahkan/Kurangi poin global
-        GameManager.Instance.poinEnding += points;
-
-        // 2. Cek apakah ini akhir percakapan
-        if (nextNode == null)
-        {
-            EndDialogue();
+            StartCoroutine(AutoEndDialogue());
         }
         else
         {
-            // 3. Lanjut ke node selanjutnya
-            ShowNode(nextNode);
+            foreach (DialogueChoice choice in node.choices)
+            {
+                CreateChoiceButton(choice.choiceText, choice.pointsValue, choice.nextNode);
+            }
         }
     }
 
-    // Menutup panel dialog
+    private void CreateChoiceButton(string text, int points, DialogueNode nextNode)
+    {
+        GameObject buttonObj = Instantiate(choiceButtonPrefab, choiceContainer);
+        buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = text;
+
+        buttonObj.GetComponent<Button>().onClick.AddListener(() => {
+            SelectChoice(text, points, nextNode);
+        });
+    }
+
+    private void SelectChoice(string choiceText, int points, DialogueNode nextNode)
+    {
+        StopAllCoroutines();
+        GameManager.Instance.poinEnding += points;
+
+        foreach (Transform child in choiceContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        currentTypingCoroutine = StartCoroutine(ShowPlayerChoice(choiceText, nextNode));
+    }
+
+    private IEnumerator ShowPlayerChoice(string choiceText, DialogueNode nextNode)
+    {
+        nameText.text = playerName; // <--- TAMBAHAN BARU: Set nama Player
+
+        dialogueText.text = "";
+        
+        // --- MODIFIKASI: Tanda ">" DIHILANGKAN ---
+        string playerText = choiceText; 
+
+        char[] characters = playerText.ToCharArray();
+        foreach (char c in characters)
+        {
+            dialogueText.text += c;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        yield return new WaitForSeconds(playerChoiceDelay);
+
+        if (nextNode == null)
+        {
+            StartCoroutine(AutoEndDialogue());
+        }
+        else
+        {
+            ShowNode(nextNode); // Panggil ShowNode untuk respon NPC
+        }
+    }
+
     private void EndDialogue()
     {
+        StopAllCoroutines();
         dialoguePanel.SetActive(false);
-        // Time.timeScale = 1f; // Opsional: Un-pause game
+        if (nameText != null) nameText.text = ""; // Bersihkan nama saat selesai
+        // Time.timeScale = 1f;
+    }
+
+    private IEnumerator AutoEndDialogue()
+    {
+        yield return new WaitForSeconds(autoEndDelay);
+        EndDialogue();
     }
 }

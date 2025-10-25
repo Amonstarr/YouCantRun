@@ -1,9 +1,12 @@
-// NPCDialogue.cs
 using UnityEngine;
 
 public class NPCDialogue : MonoBehaviour
 {
+    [Header("Data Dialog")]
     public DialogueNode startNode; // Drag node dialog pertamamu ke sini
+    public string npcName = "NPC";   // <--- TAMBAHAN BARU
+
+    [Header("Trigger")]
     public KeyCode interactionKey = KeyCode.E;
     
     private DialogueManager dialogueManager;
@@ -20,7 +23,9 @@ public class NPCDialogue : MonoBehaviour
         // Cek jika pemain di dalam jangkauan DAN menekan tombol
         if (playerInRange && Input.GetKeyDown(interactionKey))
         {
-            dialogueManager.StartDialogue(startNode);
+            // --- MODIFIKASI DI SINI ---
+            // Kita sekarang mengirim 'npcName' saat memulai dialog
+            dialogueManager.StartDialogue(startNode, npcName); 
         }
     }
 
@@ -29,7 +34,6 @@ public class NPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            // Opsional: Tampilkan UI "Tekan E"
         }
     }
 
@@ -38,7 +42,6 @@ public class NPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            // Opsional: Sembunyikan UI "Tekan E"
         }
     }
 }
