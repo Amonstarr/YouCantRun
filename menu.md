@@ -150,10 +150,10 @@ AudioManager.ResumeMusic();
 - [done] UI Elements sudah dibuat
 - [done] MainMenuManager sudah di-setup
 - [done] Buttons sudah di-link ke MainMenuManager
-- [ ] Scene sudah ditambahkan ke Build Settings
-- [ ] Transition effect sudah di-test
-- [ ] Audio sudah di-setup (opsional)
-- [ ] Test play di Editor
+- [done] Scene sudah ditambahkan ke Build Settings
+- [nanti] Transition effect sudah di-test
+- [nanti] Audio sudah di-setup (opsional)
+- [done] Test play di Editor
 
 ---
 
@@ -175,5 +175,5 @@ AudioManager.ResumeMusic();
 - Pastikan Canvas Scaler sudah di-setup
 
 ---
-
-Selamat membuat main menu! 🎮
+*note*
+option belum inactive
