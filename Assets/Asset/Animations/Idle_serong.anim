@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle
+  m_Name: Idle_serong
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -22,11 +22,11 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: -1884731625, guid: 749899d1073871f4d9591fa4ce3b1925, type: 3}
-    - time: 0.16666667
+    - time: 0.21666667
       value: {fileID: 1177219716, guid: 749899d1073871f4d9591fa4ce3b1925, type: 3}
-    - time: 0.33333334
+    - time: 0.45
       value: {fileID: -1664200733, guid: 749899d1073871f4d9591fa4ce3b1925, type: 3}
-    - time: 0.5
+    - time: 0.6666667
       value: {fileID: -2052124194, guid: 749899d1073871f4d9591fa4ce3b1925, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,7 +59,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.68333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

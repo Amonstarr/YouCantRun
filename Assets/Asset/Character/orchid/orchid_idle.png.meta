@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 97350d75058afda45a3499ea384f3314
+guid: a9fe757855cd5be45abc05206e338465
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: orchid_idle_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 26
+        width: 260
+        height: 597
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96d4de78ffe87047ad946664e556eb7
+      internalID: -2003498331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orchid_idle_1
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 26
+        width: 260
+        height: 597
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25a6cbd4036ad384b825ded62282ec10
+      internalID: 1417905575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orchid_idle_2
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 26
+        width: 260
+        height: 597
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0189d706835a709408b48d4ca2ed707b
+      internalID: 1935849602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orchid_idle_3
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 26
+        width: 260
+        height: 597
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7faa2cdeb73039141b71cbaa4b91ada2
+      internalID: 1583917113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      orchid_idle_0: -2003498331
+      orchid_idle_1: 1417905575
+      orchid_idle_2: 1935849602
+      orchid_idle_3: 1583917113
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
