@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPortrait: {fileID: 0}
   flipPortrait: 0
-  dialogueText: 
-  choices: []
+  dialogueText: Maya Menghabiskan Es Krim...
+  choices:
+  - choiceText: Es krimnya enak, Om
+    pointsValue: 0
+    nextNode: {fileID: 11400000, guid: abaa3f460cfde3b45baad31c1db18ea8, type: 2}
+  autoContinueNode: {fileID: 0}
+  unlocksExitOnComplete: 0

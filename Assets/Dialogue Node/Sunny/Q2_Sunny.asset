@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
   m_Name: Q2_Sunny
   m_EditorClassIdentifier: 
-  characterPortrait: {fileID: 0}
+  characterPortrait: {fileID: 21300000, guid: e201c757d862b2040b51b937ad32910a, type: 3}
   flipPortrait: 0
-  dialogueText: 
-  choices: []
+  dialogueText: Om perhatikan, kamu pulangnya selalu lewat sini, ya?
+  choices:
+  - choiceText: Nggak juga, Om. Kadang-kadang aja.
+    pointsValue: 1
+    nextNode: {fileID: 11400000, guid: 2c2219381d714c94a8dbcf739ed545c9, type: 2}
+  - choiceText: Iya, Om. Rumahku soalnya lewat sini terus.
+    pointsValue: -1
+    nextNode: {fileID: 11400000, guid: 91ef4fa974f4abf409b6a161893b2aed, type: 2}
+  autoContinueNode: {fileID: 0}
+  unlocksExitOnComplete: 0

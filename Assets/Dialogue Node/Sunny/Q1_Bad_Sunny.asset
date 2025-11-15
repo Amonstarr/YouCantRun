@@ -17,4 +17,5 @@ MonoBehaviour:
   dialogueText: Beneran, dong! Dimakan ya, biar tenaganya kembali lagi. Om senang
     deh lihatnya.
   choices: []
-  autoContinueNode: {fileID: 0}
+  autoContinueNode: {fileID: 11400000, guid: d05ea73f11dbcbb49a010cf30518b850, type: 2}
+  unlocksExitOnComplete: 0

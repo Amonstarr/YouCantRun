@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
   m_Name: Sunny cerita
   m_EditorClassIdentifier: 
-  characterPortrait: {fileID: 0}
+  characterPortrait: {fileID: 21300000, guid: e201c757d862b2040b51b937ad32910a, type: 3}
   flipPortrait: 0
-  dialogueText: Kamu anak yang baik, Om suka. Om harap besok kita bisa ketemu lagi
-    di sini.
+  dialogueText: Iya, Om baru hari ini mangkal di sini. Dulu Om jualan di dekat taman
+    kota, tapi di sana agak sepi.
   choices: []
-  autoContinueNode: {fileID: 0}
+  autoContinueNode: {fileID: 11400000, guid: bef280d8aa18ba34a8f4bb20bfb3bdc1, type: 2}
+  unlocksExitOnComplete: 0
