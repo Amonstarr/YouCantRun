@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement; // <-- JANGAN LUPA!
 public class EndingTrigger : MonoBehaviour
 {
     [Header("Nama Scene Ending")]
-    public string happyEndingSceneName = "HappyEndingScene";
-    public string sadEndingSceneName = "SadEndingScene";
+    public string happyEndingSceneName = "HappyEnd";
+    public string sadEndingSceneName = "SadEnd";
 
     [Header("Batas Skor")]
     public int happyEndingThreshold = 0; // Jika skor > 0, dapat happy ending

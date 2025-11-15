@@ -1528,13 +1528,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce0a9cc6f641ff01820ece90da15615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuPanel: {fileID: 1822651580}
-  optionsPanel: {fileID: 1130771008}
+  mainMenuPanel: {fileID: 0}
+  optionsPanel: {fileID: 0}
   playButton: {fileID: 428925743}
   optionsButton: {fileID: 353434917}
   quitButton: {fileID: 272564649}
   backButton: {fileID: 867453673}
-  firstSceneName: Game1
+  firstSceneName: Day1Question
+  firstSceneIndex: 1
+  useSceneIndex: 0
   transitionDelay: 0.5
 --- !u!4 &1264619130
 Transform:
@@ -2131,10 +2133,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 428925742}
   - {fileID: 1996072163}
   - {fileID: 353434916}
   - {fileID: 272564648}
+  - {fileID: 428925742}
   m_Father: {fileID: 547446583}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

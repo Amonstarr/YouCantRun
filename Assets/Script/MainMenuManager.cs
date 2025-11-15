@@ -17,7 +17,9 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button backButton;
     
     [Header("Settings")]
-    [SerializeField] private string firstSceneName = "Game1";
+    [SerializeField] private string firstSceneName = "Day1Question";
+    [SerializeField] private int firstSceneIndex = 1; // Alternatif: gunakan index
+    [SerializeField] private bool useSceneIndex = false; // Toggle untuk pilih metode
     [SerializeField] private float transitionDelay = 0.5f;
     
     private void Start()
@@ -52,7 +54,17 @@ public class MainMenuManager : MonoBehaviour
     public void PlayGame()
     {
         Debug.Log("Starting game...");
-        StartCoroutine(LoadSceneWithDelay(firstSceneName, transitionDelay));
+        
+        if (useSceneIndex)
+        {
+            // Load by scene index
+            StartCoroutine(LoadSceneWithDelay(firstSceneIndex, transitionDelay));
+        }
+        else
+        {
+            // Load by scene name
+            StartCoroutine(LoadSceneWithDelay(firstSceneName, transitionDelay));
+        }
     }
     
     // Buka options
@@ -89,11 +101,18 @@ public class MainMenuManager : MonoBehaviour
         #endif
     }
     
-    // Load scene
+    // Load scene dengan delay (by name)
     private IEnumerator LoadSceneWithDelay(string sceneName, float delay)
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(sceneName);
+    }
+    
+    // Load scene dengan delay (by index)
+    private IEnumerator LoadSceneWithDelay(int sceneIndex, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneIndex);
     }
     
     // gak tau ini apa
