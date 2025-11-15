@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Button backButton;
     
     [Header("Settings")]
-    [SerializeField] private string firstSceneName = "Game1";
+    [SerializeField] private string firstSceneName = "Day1Question";
     [SerializeField] private float transitionDelay = 0.5f;
     
     private void Start()
