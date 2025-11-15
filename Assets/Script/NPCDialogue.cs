@@ -3,29 +3,42 @@ using UnityEngine;
 public class NPCDialogue : MonoBehaviour
 {
     [Header("Data Dialog")]
-    public DialogueNode startNode; // Drag node dialog pertamamu ke sini
-    public string npcName = "NPC";   // <--- TAMBAHAN BARU
+    public DialogueNode startNode;
+    public string npcName = "NPC";
 
     [Header("Trigger")]
     public KeyCode interactionKey = KeyCode.E;
-    
+
+    [Header("Prompt Icon")] // <--- DIUBAH: Dari UI ke Sprite
+    // Drag objek 'InteractionIcon' (anak dari NPC) ke sini
+    public GameObject interactionPromptSprite; 
+
     private DialogueManager dialogueManager;
     private bool playerInRange = false;
 
     private void Start()
     {
-        // Cari DialogueManager saat mulai
         dialogueManager = FindObjectOfType<DialogueManager>();
+        
+        // Pastikan ikon tersembunyi saat game dimulai
+        if (interactionPromptSprite != null)
+        {
+            interactionPromptSprite.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        // Cek jika pemain di dalam jangkauan DAN menekan tombol
         if (playerInRange && Input.GetKeyDown(interactionKey))
         {
-            // --- MODIFIKASI DI SINI ---
-            // Kita sekarang mengirim 'npcName' saat memulai dialog
+            // Mulai dialog
             dialogueManager.StartDialogue(startNode, npcName); 
+            
+            // Sembunyikan ikon saat dialog dimulai
+            if (interactionPromptSprite != null)
+            {
+                interactionPromptSprite.SetActive(false);
+            }
         }
     }
 
@@ -34,6 +47,12 @@ public class NPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            
+            // Tampilkan ikon saat pemain masuk
+            if (interactionPromptSprite != null)
+            {
+                interactionPromptSprite.SetActive(true);
+            }
         }
     }
 
@@ -42,6 +61,12 @@ public class NPCDialogue : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            
+            // Sembunyikan ikon saat pemain keluar
+            if (interactionPromptSprite != null)
+            {
+                interactionPromptSprite.SetActive(false);
+            }
         }
     }
 }
