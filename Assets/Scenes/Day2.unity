@@ -2053,7 +2053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2132d0d90050b8d488dee1a99489af0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startNode: {fileID: 11400000, guid: ea039fb071530f148a5dc3ba13f59641, type: 2}
+  startNode: {fileID: 11400000, guid: 387ab52eb3e621547963cda704d8bc7d, type: 2}
   npcName: Sunny
   interactionKey: 101
   interactionPromptSprite: {fileID: 1652756209}
@@ -2890,7 +2890,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2132d0d90050b8d488dee1a99489af0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startNode: {fileID: 11400000, guid: 94c7cab2c86efb44ebd77ff284c7136e, type: 2}
+  startNode: {fileID: 11400000, guid: c894579f7d7ad5e4695dd377caa3c199, type: 2}
   npcName: Mr. Orchid
   interactionKey: 101
   interactionPromptSprite: {fileID: 1039787826}
