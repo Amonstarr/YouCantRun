@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Chatting.unity
     guid: 511d1054e7103b34bbfc0803af1a6e94
   - enabled: 1
+    path: Assets/Scenes/Day2.unity
+    guid: 3fc9bf2570364054990fcf175c028fd5
+  - enabled: 1
     path: Assets/Scenes/Final dummy.unity
     guid: 8e75d8d63b7fdc5438071f09a89808a0
   - enabled: 1
