@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
   m_Name: Q3_Orchid
   m_EditorClassIdentifier: 
-  dialogueText: "\u201CLain kali, bisa bareng Bapak tuh pulangnya.\u201D"
+  characterPortrait: {fileID: 21300000, guid: 4b56b42b4f3ff974da064d58a041feca, type: 3}
+  flipPortrait: 0
+  dialogueText: Lain kali, bisa bareng Bapak tuh pulangnya.
   choices:
-  - choiceText: "\u201CNggak usah deh, Pak. Nanti merepotkan.\u201D"
+  - choiceText: Nggak usah deh, Pak. Nanti merepotkan.
     pointsValue: 1
     nextNode: {fileID: 11400000, guid: 0747ff7eea01f37409ff7c5dea8b8ab4, type: 2}
-  - choiceText: "\u201CMemang rumahnya Bapak di mana?\u201D"
+  - choiceText: Memang rumahnya Bapak di mana?
     pointsValue: -1
     nextNode: {fileID: 11400000, guid: 2baab943ff0912048a7d5f69b743a4ca, type: 2}

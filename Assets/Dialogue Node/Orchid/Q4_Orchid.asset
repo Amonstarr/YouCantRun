@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
   m_Name: Q4_Orchid
   m_EditorClassIdentifier: 
-  dialogueText: "\u201CKalau mau ditemani jalan pulang bilang bapak saja ya.\u201D"
+  characterPortrait: {fileID: 21300000, guid: 4b56b42b4f3ff974da064d58a041feca, type: 3}
+  flipPortrait: 0
+  dialogueText: Kalau mau ditemani jalan pulang bilang bapak saja ya.
   choices:
-  - choiceText: "\u201CHehe, boleh, Pak, kalau memang tidak merepotkan.\u201D"
+  - choiceText: Hehe, boleh, Pak, kalau memang tidak merepotkan.
     pointsValue: -1
     nextNode: {fileID: 11400000, guid: 9da21f1c4be2b3d4c8fc986cb722a7b1, type: 2}

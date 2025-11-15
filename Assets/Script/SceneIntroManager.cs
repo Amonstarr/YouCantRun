@@ -18,7 +18,7 @@ public class SceneIntroManager : MonoBehaviour
     void Start()
     {
         // Set teks yang diinginkan
-        objectiveText.text = "Temui Mr. Orchid";
+        objectiveText.text = "Temui Setiap Orang";
 
         // Pastikan status awalnya benar
         fadePanel.color = Color.black;

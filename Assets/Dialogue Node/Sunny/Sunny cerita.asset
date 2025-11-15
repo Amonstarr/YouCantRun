@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
-  m_Name: 1. Start_Orchid
+  m_Name: Sunny cerita
   m_EditorClassIdentifier: 
-  characterPortrait: {fileID: 21300000, guid: 4b56b42b4f3ff974da064d58a041feca, type: 3}
+  characterPortrait: {fileID: 0}
   flipPortrait: 0
-  dialogueText: Wah, Adel. Sudah waktunya pulang sekolah, ya?
-  choices:
-  - choiceText: Sudah, Bapak.
-    pointsValue: 0
-    nextNode: {fileID: 11400000, guid: 1b29b945ec773b94d91bd08d9d9b4262, type: 2}
+  dialogueText: 
+  choices: []

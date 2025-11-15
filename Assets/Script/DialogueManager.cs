@@ -10,29 +10,37 @@ public class DialogueManager : MonoBehaviour
     [Header("UI Elements")]
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
-    public TextMeshProUGUI nameText; // <--- TAMBAHAN BARU: Referensi UI Nama
+    public TextMeshProUGUI nameText;
     public Transform choiceContainer;
     public GameObject choiceButtonPrefab;
 
-    [Header("Speaker Names")]
-    public string playerName = "Player"; // <--- TAMBAHAN BARU: Nama Player
+    // --- TAMBAHAN BARU UNTUK POTRET KARAKTER ---
+    [Header("Character Portraits")]
+    public Image leftCharacterPortrait;  // Drag UI Image untuk potret kiri ke sini
+    public Image rightCharacterPortrait; // Drag UI Image untuk potret kanan ke sini
+    public Sprite playerPortrait;        // Drag gambar potret Player ke sini
 
     [Header("Timing & Efek")]
     public float typingSpeed = 0.02f;
     public float playerChoiceDelay = 0.75f;
     public float autoEndDelay = 2.0f;
 
+    [Header("Speaker Names")]
+    public string playerName = "Player";
+
     private DialogueNode currentNode;
     private Coroutine currentTypingCoroutine;
-    private string currentNpcName; // <--- TAMBAHAN BARU: Menyimpan nama NPC
+    private string currentNpcName;
 
-    // --- MODIFIKASI: Menangkap 'speakerName' ---
+    // --- DIUBAH: Menangkap 'speakerName' ---
     public void StartDialogue(DialogueNode startNode, string speakerName)
     {
         dialoguePanel.SetActive(true);
-        currentNpcName = speakerName; // Simpan nama NPC
-        // Time.timeScale = 0f;
+        currentNpcName = speakerName;
         
+        // Pastikan semua potret tersembunyi di awal
+        HideAllPortraits(); // <--- BARU
+
         ShowNode(startNode);
     }
 
@@ -41,7 +49,9 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         currentNode = node;
 
-        nameText.text = currentNpcName; // <--- TAMBAHAN BARU: Set nama NPC
+        // --- TAMBAHAN BARU UNTUK MENAMPILKAN POTRET NPC ---
+        nameText.text = currentNpcName;
+        DisplayNpcPortrait(node.characterPortrait, node.flipPortrait); // <--- BARU
 
         foreach (Transform child in choiceContainer)
         {
@@ -51,6 +61,7 @@ public class DialogueManager : MonoBehaviour
         currentTypingCoroutine = StartCoroutine(TypeText(node));
     }
 
+    // GANTI SELURUH FUNGSI INI
     private IEnumerator TypeText(DialogueNode node)
     {
         dialogueText.text = "";
@@ -59,19 +70,47 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in characters)
         {
             dialogueText.text += c;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
 
-        if (node.choices.Count == 0)
+        // Teks NPC selesai diketik. Sekarang cek apa selanjutnya.
+
+        // 1. Cek apakah ada PILIHAN?
+        if (node.choices.Count > 0)
         {
-            StartCoroutine(AutoEndDialogue());
-        }
-        else
-        {
+            // Ya, ada pilihan.
+            
+            // --- TAMBAHAN JEDA DI SINI ---
+            // Beri jeda sejenak (sesuai nilai playerChoiceDelay)
+            // sebelum menampilkan pilihan.
+            yield return new WaitForSecondsRealtime(playerChoiceDelay);
+            // -----------------------------
+
+            // Ganti fokus ke Player
+            DisplayPlayerPortrait();
+            nameText.text = playerName;
+            dialogueText.text = ""; // Kosongkan textbox
+
+            // Buat tombol-tombol pilihan
             foreach (DialogueChoice choice in node.choices)
             {
                 CreateChoiceButton(choice.choiceText, choice.pointsValue, choice.nextNode);
             }
+        }
+        // 2. Jika tidak ada pilihan, cek apakah ada LANJUTAN OTOMATIS?
+        else if (node.autoContinueNode != null)
+        {
+            // Ya, ada node untuk dilanjut. Beri jeda sedikit agar bisa dibaca.
+            yield return new WaitForSecondsRealtime(playerChoiceDelay); 
+            
+            // Tampilkan node selanjutnya
+            ShowNode(node.autoContinueNode);
+        }
+        // 3. Jika tidak ada pilihan DAN tidak ada lanjutan otomatis
+        else
+        {
+            // Ini adalah akhir dialog. Tutup otomatis.
+            StartCoroutine(AutoEndDialogue());
         }
     }
 
@@ -100,21 +139,20 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator ShowPlayerChoice(string choiceText, DialogueNode nextNode)
     {
-        nameText.text = playerName; // <--- TAMBAHAN BARU: Set nama Player
+        nameText.text = playerName;
+        DisplayPlayerPortrait(); // <--- BARU: Tampilkan potret Player
 
         dialogueText.text = "";
-        
-        // --- MODIFIKASI: Tanda ">" DIHILANGKAN ---
-        string playerText = choiceText; 
+        string playerText = choiceText;
 
         char[] characters = playerText.ToCharArray();
         foreach (char c in characters)
         {
             dialogueText.text += c;
-            yield return new WaitForSeconds(typingSpeed);
+            yield return new WaitForSecondsRealtime(typingSpeed);
         }
 
-        yield return new WaitForSeconds(playerChoiceDelay);
+        yield return new WaitForSecondsRealtime(playerChoiceDelay);
 
         if (nextNode == null)
         {
@@ -122,7 +160,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            ShowNode(nextNode); // Panggil ShowNode untuk respon NPC
+            ShowNode(nextNode);
         }
     }
 
@@ -130,13 +168,45 @@ public class DialogueManager : MonoBehaviour
     {
         StopAllCoroutines();
         dialoguePanel.SetActive(false);
-        if (nameText != null) nameText.text = ""; // Bersihkan nama saat selesai
-        //Time.timeScale = 1f;
+        if (nameText != null) nameText.text = "";
+        HideAllPortraits(); // <--- BARU: Sembunyikan semua potret saat dialog selesai
     }
 
     private IEnumerator AutoEndDialogue()
     {
-        yield return new WaitForSeconds(autoEndDelay);
+        yield return new WaitForSecondsRealtime(autoEndDelay);
         EndDialogue();
     }
+
+    // --- FUNGSI BARU UNTUK MENGONTROL POTRET ---
+    private void DisplayNpcPortrait(Sprite portrait, bool flip)
+    {
+        HideAllPortraits(); // Sembunyikan semua potret sebelumnya
+
+        if (portrait != null)
+        {
+            rightCharacterPortrait.sprite = portrait;
+            rightCharacterPortrait.gameObject.SetActive(true);
+            rightCharacterPortrait.transform.localScale = new Vector3(flip ? -1 : 1, 1, 1); // Flip jika perlu
+        }
+    }
+
+    private void DisplayPlayerPortrait()
+    {
+        HideAllPortraits(); // Sembunyikan semua potret sebelumnya
+
+        if (playerPortrait != null)
+        {
+            leftCharacterPortrait.sprite = playerPortrait;
+            leftCharacterPortrait.gameObject.SetActive(true);
+            leftCharacterPortrait.transform.localScale = Vector3.one; // Pastikan tidak ter-flip
+        }
+    }
+
+    private void HideAllPortraits()
+    {
+        if (leftCharacterPortrait != null) leftCharacterPortrait.gameObject.SetActive(false);
+        if (rightCharacterPortrait != null) rightCharacterPortrait.gameObject.SetActive(false);
+    }
+    // -----------------------------------------------------
 }

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
   m_Name: Q3_Good_Orchid
   m_EditorClassIdentifier: 
-  dialogueText: "(+) \u201CHaha, tidak apa-apa kok.\u201D"
+  characterPortrait: {fileID: 21300000, guid: 4b56b42b4f3ff974da064d58a041feca, type: 3}
+  flipPortrait: 0
+  dialogueText: Haha, tidak apa-apa kok.
   choices: []
