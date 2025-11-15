@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPortrait: {fileID: 0}
   flipPortrait: 0
-  dialogueText: 
+  dialogueText: Ini rasa paling favorit buat anak-anak pintar kayak kamu. Gratis,
+    buat kenalan!
   choices: []
+  autoContinueNode: {fileID: 0}

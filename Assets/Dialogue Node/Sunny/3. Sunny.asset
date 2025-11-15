@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPortrait: {fileID: 0}
   flipPortrait: 0
-  dialogueText: 
+  dialogueText: Om punya sesuatu yang bikin adem. Nih, Om punya satu es krim stroberi
   choices: []
+  autoContinueNode: {fileID: 0}

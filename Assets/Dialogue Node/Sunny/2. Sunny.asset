@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPortrait: {fileID: 0}
   flipPortrait: 0
-  dialogueText: 
+  dialogueText: Wah, hebat sekali! Om panggilannya Sunny! Kamu kelihatan lelah sekali,
+    pasti haus, ya?
   choices: []
+  autoContinueNode: {fileID: 0}

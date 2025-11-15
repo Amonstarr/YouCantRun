@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterPortrait: {fileID: 0}
   flipPortrait: 0
-  dialogueText: 
+  dialogueText: Kamu anak yang baik, Om suka. Om harap besok kita bisa ketemu lagi
+    di sini.
   choices: []
+  autoContinueNode: {fileID: 0}
