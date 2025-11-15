@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
-  m_Name: Mamah_Jawab_Santai
+  m_Name: 1. Start_Orchid
   m_EditorClassIdentifier: 
-  dialogueText: Yoii, sangte euyy
+  dialogueText: "\u201CWah, Adel. Sudah waktunya pulang sekolah, ya?\u201D"
   choices:
-  - choiceText: minta sangu
-    pointsValue: 1
-    nextNode: {fileID: 11400000, guid: 6c8d32b5f4e174b4ba3093997fa8688f, type: 2}
+  - choiceText: "\u201CSudah, Bapak.\u201D"
+    pointsValue: 0
+    nextNode: {fileID: 11400000, guid: 1b29b945ec773b94d91bd08d9d9b4262, type: 2}

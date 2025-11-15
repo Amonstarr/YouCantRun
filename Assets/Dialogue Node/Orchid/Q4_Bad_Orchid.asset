@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
-  m_Name: Mamah_Start
+  m_Name: Q4_Bad_Orchid
   m_EditorClassIdentifier: 
-  dialogueText: Yoo wassap gurll
+  dialogueText: "\u201CSudah, sana pulang. Hati-hati, ya.\u201D"
   choices:
-  - choiceText: Ingyahh Yang Mulia Ibunda Kanjeng Ratu?
-    pointsValue: 1
-    nextNode: {fileID: 11400000, guid: c8052ed68749b514089261b87f5d0113, type: 2}
-  - choiceText: so asiq njiirr
+  - choiceText: "\u201CTerima kasih, Pak. Bye-bye!\u201D"
     pointsValue: -1
-    nextNode: {fileID: 11400000, guid: 56bcf8b7d59317243b949070433a1156, type: 2}
+    nextNode: {fileID: 0}

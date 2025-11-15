@@ -131,7 +131,7 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         dialoguePanel.SetActive(false);
         if (nameText != null) nameText.text = ""; // Bersihkan nama saat selesai
-        // Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
 
     private IEnumerator AutoEndDialogue()

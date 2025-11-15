@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80a4e0c0113c1474f8048de1be0078e9
+guid: df8a933b5dfc1e14995a47eb1db67710
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kanan_0
+      name: PausePanel_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 33
-        width: 188
-        height: 516
+        x: 530
+        y: 281
+        width: 863
+        height: 513
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,71 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8a5380c2f6a8d54283ded661fe1b121
-      internalID: 1384018959
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kanan_1
-      rect:
-        serializedVersion: 2
-        x: 206
-        y: 32
-        width: 188
-        height: 516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 068b897d1bf6fa44fa02317c3a1c3792
-      internalID: 1636876329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kanan_2
-      rect:
-        serializedVersion: 2
-        x: 406
-        y: 33
-        width: 188
-        height: 516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d8f610b5bbebebd468855a1391b73a18
-      internalID: 1796817509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kanan_3
-      rect:
-        serializedVersion: 2
-        x: 611
-        y: 31
-        width: 188
-        height: 516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb24f081cafd5bd419efa3fcb25b7530
-      internalID: 814333020
+      spriteID: c3345e7c8f939084bb91583813c75758
+      internalID: -2064160798
       vertices: []
       indices: 
       edges: []
@@ -204,10 +141,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kanan_0: 1384018959
-      kanan_1: 1636876329
-      kanan_2: 1796817509
-      kanan_3: 814333020
+      PausePanel_0: -2064160798
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

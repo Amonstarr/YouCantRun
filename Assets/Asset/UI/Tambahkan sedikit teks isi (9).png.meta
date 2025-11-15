@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80a4e0c0113c1474f8048de1be0078e9
+guid: 5ef94679d5acea9488c630bf648548a0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kanan_0
+      name: Tambahkan sedikit teks isi (9)_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 33
-        width: 188
-        height: 516
+        x: 763
+        y: 556
+        width: 375
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8a5380c2f6a8d54283ded661fe1b121
-      internalID: 1384018959
+      spriteID: 878f5559cd9bdb540acbbc7409be3b2b
+      internalID: -43526188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanan_1
+      name: Tambahkan sedikit teks isi (9)_1
       rect:
         serializedVersion: 2
-        x: 206
-        y: 32
-        width: 188
-        height: 516
+        x: 763
+        y: 440
+        width: 375
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 068b897d1bf6fa44fa02317c3a1c3792
-      internalID: 1636876329
+      spriteID: 41172643b7d2d68459a8818541b1117d
+      internalID: -680184262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kanan_2
+      name: Tambahkan sedikit teks isi (9)_2
       rect:
         serializedVersion: 2
-        x: 406
-        y: 33
-        width: 188
-        height: 516
+        x: 763
+        y: 327
+        width: 377
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,29 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8f610b5bbebebd468855a1391b73a18
-      internalID: 1796817509
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kanan_3
-      rect:
-        serializedVersion: 2
-        x: 611
-        y: 31
-        width: 188
-        height: 516
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eb24f081cafd5bd419efa3fcb25b7530
-      internalID: 814333020
+      spriteID: 2c614094e4f52e8459c4f870d94c94a9
+      internalID: 1121634496
       vertices: []
       indices: 
       edges: []
@@ -204,10 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kanan_0: 1384018959
-      kanan_1: 1636876329
-      kanan_2: 1796817509
-      kanan_3: 814333020
+      Tambahkan sedikit teks isi (9)_0: -43526188
+      Tambahkan sedikit teks isi (9)_1: -680184262
+      Tambahkan sedikit teks isi (9)_2: 1121634496
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

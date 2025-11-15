@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
+  m_Name: Q4_Orchid
+  m_EditorClassIdentifier: 
+  dialogueText: "\u201CKalau mau ditemani jalan pulang bilang bapak saja ya.\u201D"
+  choices:
+  - choiceText: "\u201CHehe, boleh, Pak, kalau memang tidak merepotkan.\u201D"
+    pointsValue: -1
+    nextNode: {fileID: 11400000, guid: 9da21f1c4be2b3d4c8fc986cb722a7b1, type: 2}
