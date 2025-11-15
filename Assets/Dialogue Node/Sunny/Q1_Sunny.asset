@@ -18,8 +18,11 @@ MonoBehaviour:
     buat kenalan!
   choices:
   - choiceText: Wah! Beneran, Om? Makasih banyak, Om Sunny!
+    pointsValue: -1
+    nextNode: {fileID: 11400000, guid: 3e664a7e6b19bd5469ea282be82f02ef, type: 2}
+  - choiceText: Eh... tapi kata Mama, aku nggak boleh terima apa-apa dari orang yang
+      nggak dikenal
     pointsValue: 2
-    nextNode: {fileID: 0}
-  - choiceText: 
-    pointsValue: 0
-    nextNode: {fileID: 0}
+    nextNode: {fileID: 11400000, guid: e98ebf136b7b7df4caff3395dec3b44d, type: 2}
+  autoContinueNode: {fileID: 0}
+  unlocksExitOnComplete: 0

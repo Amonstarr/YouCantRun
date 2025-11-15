@@ -174,7 +174,19 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator AutoEndDialogue()
     {
+        // --- TAMBAHAN BARU DI SINI ---
+        // Cek apakah node terakhir ini harus membuka pintu keluar?
+        if (currentNode != null && currentNode.unlocksExitOnComplete)
+        {
+            // Panggil fungsi di GameManager untuk set flag-nya
+            GameManager.Instance.UnlockExit();
+        }
+        // -----------------------------
+
+        // Jeda sebelum dialog ditutup
         yield return new WaitForSecondsRealtime(autoEndDelay);
+        
+        // Panggil fungsi penutup
         EndDialogue();
     }
 

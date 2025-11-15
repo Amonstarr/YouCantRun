@@ -1,34 +1,57 @@
-// GameManager.cs
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement; // <-- TAMBAHKAN INI
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
     public int poinEnding = 0;
 
     // --- PAUSE MENU LOGIC ---
     [Header("Pause Menu")]
-    public GameObject pauseMenuPanel; // Panel yang berisi 'Resume', 'Options', dll.
-    public GameObject pauseLogoButton;  // <--- TAMBAHAN BARU: Tombol logo di UI
-    public string mainMenuSceneName = "MainMenu";
-
+    public GameObject pauseMenuPanel;
+    public GameObject pauseLogoButton;
+    public string mainMenuSceneName = "MainMenuScene";
     private bool isPaused = false;
-    // -------------------------
+    
+    // --- TAMBAHAN BARU UNTUK SYARAT PINDAH SCENE ---
+    [Header("Quest Flags")]
+    public bool canExitLevel = false; // "Bendera" kita
+    // --------------------------------------------------
 
     private void Awake()
     {
-        // Ini adalah pola Singleton sederhana
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Jaga agar tidak hancur saat ganti scene
+            DontDestroyOnLoad(gameObject);
+            
+            // --- TAMBAHAN BARU ---
+            // Berlangganan event "sceneLoaded"
+            // Ini agar kita bisa mereset flag di level baru
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            // ---------------------
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    // --- TAMBAHKAN FUNGSI BARU DI BAWAH INI ---
+
+    // Dipanggil setiap kali scene baru selesai dimuat
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Reset flag setiap kali masuk scene baru
+        // Ini penting agar di level 2 kamu harus bicara dgn NPC lagi
+        canExitLevel = false; 
+    }
+
+    // Fungsi ini akan kita panggil dari dialog untuk "membuka kunci"
+    public void UnlockExit()
+    {
+        canExitLevel = true;
+        Debug.Log("Pintu Keluar SUDAH DIBUKA!");
     }
 
     // Fungsi untuk menghentikan game
@@ -54,7 +77,7 @@ public class GameManager : MonoBehaviour
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(mainMenuSceneName);
     }
     
     // Fungsi untuk tombol Options (placeholder)

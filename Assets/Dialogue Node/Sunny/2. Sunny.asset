@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4979c96f9450656458b9c793aece8b5b, type: 3}
   m_Name: 2. Sunny
   m_EditorClassIdentifier: 
-  characterPortrait: {fileID: 0}
+  characterPortrait: {fileID: 21300000, guid: e201c757d862b2040b51b937ad32910a, type: 3}
   flipPortrait: 0
-  dialogueText: 
-  choices: []
+  dialogueText: Wah, hebat sekali! Om panggilannya Sunny! Kamu kelihatan lelah sekali,
+    pasti haus, ya?
+  choices:
+  - choiceText: Lumayan, Om Sunny. Hari ini panas.
+    pointsValue: 0
+    nextNode: {fileID: 11400000, guid: 3ed5105d2dcad4c4eb4a5597319cabcf, type: 2}
+  autoContinueNode: {fileID: 0}
+  unlocksExitOnComplete: 0

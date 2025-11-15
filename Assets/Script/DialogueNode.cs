@@ -16,4 +16,8 @@ public class DialogueNode : ScriptableObject
     [Header("Lanjut Otomatis (Jika Pilihan Kosong)")]
     public DialogueNode autoContinueNode; // Node selanjutnya yang akan diputar
     // ------------------------------------
+
+    // --- TAMBAHKAN BARIS DI BAWAH INI ---
+    public bool unlocksExitOnComplete = false; // Centang ini jika node ini membuka pintu
+    // ------------------------------------
 }
